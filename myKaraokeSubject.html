@@ -1,0 +1,94 @@
+
+<!DOCTYPE html>
+<html>
+<head lang="en">
+    <meta charset="UTF-8">
+    <title>Consignes - myKaraoke</title>
+    <style>
+        #main-title{text-align: center;}
+        .exo{margin:20px; padding: 5px; border: 1px solid #3588b2}
+        ul,li{list-style-type: none;}
+        .hightlight{color: #f08c00; font-weight: bold;}
+        .head-exo{cursor: pointer;  padding: 4px; text-align: center; margin: auto; background: #3588b2; opacity: 0.8; }
+        .head-exo:hover{opacity: 0.6; }
+        .content-exo{display: none; margin-top: 10px;}
+        hr{background: #000; width: 60%; margin-top: 10px; margin-bottom: 10px;}
+        .imgCenter{display: block; margin:auto;}
+        .category-title{margin: auto; margin-top:20px; text-align: center; font-family: monospace;}
+        .notice-top{margin: auto;text-align: left; background: #f08c00; padding: 8px; margin: 10px; border-radius: 4px;}
+        .footer{box-sizing:border-box;padding-top:190px;height:300px}.elevator{text-align:center;cursor:pointer;width:140px;margin:auto}.elevator:hover{opacity:.7}.elevator svg{width:40px;height:40px;display:block;margin:auto auto 5px}
+        .helper{background: #f08c00; font-style: italic; display: inline-block;padding: 10px;margin: 15px; border-radius: 4px; border: 2px solid #333333;}
+        dt{font-weight: bold;}
+    </style>
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/2.1.3/jquery.min.js"></script>
+    <script src="https://google-code-prettify.googlecode.com/svn/loader/run_prettify.js"></script>
+</head>
+<body>
+
+<h1 id="main-title">Sujet du projet myKaraoke. Sup'Internet JavaScript deuxième année</h1>
+
+<hr>
+
+<b>Vous devez créé un karaoke sur navigateur. Le but est simple : </b><br>
+Votre page web elle, devra contenir un lecteur audio HTML5. Au fur et à mesure de la lecture du fichier audio, les paroles de la musique devront s'afficher sur votre navigateur.<br>
+Pour cela, vous devez utiliser les méthodes asynchrones vues en cours de JavaScript. Vous devez aller chercher un fichier de paroles (.txt) dans lequel les paroles d'une musique sont écrites.<br>
+Format du fichier de paroles à respecter :
+ <pre>
+     -------------------------------------------
+
+     [00:03.32]Wesh bébé tu m'anques trop tavu
+     [00:07.25]J'aime trop quand t là serieux
+     [00:12.02]Ouuuuhh yeah
+     [00:19.55]...
+
+     -------------------------------------------
+</pre><br>
+
+Vous avez à votre disposition un fichier audio ainsi qu'un fichier de paroles (facultatifs, vous pouvez utiliser les votres si vous le désirez) :<br>
+<ul>
+    <li><a href="http://supjs.fr/DEV2017/asynchrone/corrections/myKaraoke/music/LOR.mp3" target="_blank">http://supjs.fr/DEV2017/asynchrone/corrections/myKaraoke/music/LOR.mp3</a></li>
+    <li><a href="http://supjs.fr/DEV2017/asynchrone/corrections/myKaraoke/lyrics.txt" target="_blank">http://supjs.fr/DEV2017/asynchrone/corrections/myKaraoke/lyrics.txt</a></li>
+</ul>
+
+
+<div class="notice-top">
+    <dl>
+        <dt>Vous devez faire votre rendu par mail à </dt>
+        <dd>cyril.teixeira@supinternet.fr</dd>
+    </dl>
+    <dl>
+        <dt>sous forme d'archive nommée </dt>
+        <dd>prenom.nom.promo-myKaraoke.zip</dd>
+        <dd>exemple : <i>bernard.dupont.dev2017-myKaraoke.zip</i></dd>
+    </dl>
+    <dl>
+        <dt>Le mail aura pour objet</dt>
+        <dd>[Prenom Nom] my karaoke</dd>
+        <dd>exemple : <i>[Bernard Dupont] my karaoke</i></dd>
+    </dl>
+    <dl>
+        <dt>Date limite du rendu :</dt>
+        <dd>Dimanche 11 Octobre 2015 à 23h59 (Heure de Paris)</dd>
+    </dl>
+</div>
+<!-- ///////////////////////////////////////////////////////////////////////////////////////////////////////// -->
+<h1 class="category-title"></h1>
+
+
+<br>
+
+
+
+<div style="margin-top: 120px; text-align: center;">
+
+
+</div>
+
+<script>
+    $(function(){
+        $(".trigger-slideDown").click(function(){var i=$("#"+$(this).attr("data-exo"));i.is(":visible")?i.slideUp():i.slideDown()})
+        var Elevator=function(e){"use strict";function n(e,n,o,t){return e/=t/2,1>e?o/2*e*e+n:(e--,-o/2*(e*(e-2)-1)+n)}function o(e,n){for(var o in n){var t=void 0===e[o]&&"function"!=typeof o;t&&(e[o]=n[o])}return e}function t(e){w||(w=e);var o=e-w,i=n(o,f,-f,v);window.scrollTo(0,i),v>o?A=requestAnimationFrame(t):l()}function i(){return window.requestAnimationFrame&&window.Audio&&window.addEventListener}function u(){w=null,f=null,E=!1}function l(){u(),c&&(c.pause(),c.currentTime=0),m&&m.play()}function d(){E&&(cancelAnimationFrame(A),u(),c&&(c.pause(),c.currentTime=0),window.scrollTo(0,0))}function r(e){e.addEventListener?e.addEventListener("click",T.elevate,!1):e.attachEvent("onclick",function(){document.documentElement.scrollTop=0,document.body.scrollTop=0,window.scroll(0,0)})}function a(e){s=document.body;var n={duration:void 0,mainAudio:!1,endAudio:!1,preloadAudio:!0,loopAudio:!0};e=o(e,n),e.element&&r(e.element),i()&&(e.duration&&(p=!0,v=e.duration),window.addEventListener("blur",d,!1),e.mainAudio&&(c=new Audio(e.mainAudio),c.setAttribute("preload",e.preloadAudio),c.setAttribute("loop",e.loopAudio)),e.endAudio&&(m=new Audio(e.endAudio),m.setAttribute("preload","true")))}var c,m,s=null,A=null,v=null,p=!1,w=null,f=null,E=!1,T=this;this.elevate=function(){E||(E=!0,f=document.documentElement.scrollTop||s.scrollTop,p||(v=1.5*f,4500>v&&(v=4500)),requestAnimationFrame(t),c&&c.play())},a(e)},elementButton=document.querySelector(".elevator"),elevator=new Elevator({element:elementButton,mainAudio:"../audio/elevator.mp3",endAudio:"../audio/ding.mp3"});
+    });
+</script>
+</body>
+</html>
